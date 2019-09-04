@@ -1,6 +1,4 @@
-# tomtom-ibm
-
-Chat your way to a faster commute!
+# Chat your way to a faster commute!
 
 Sick of wasting time in traffic on your commute when you could have taken BART? As a developer, you thought it might be hard to build something to help you "hack" your morning commute, but as it turns out, it's not as hard as you thought.
 
