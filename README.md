@@ -18,9 +18,9 @@ This project was created to showcase how easily you can utlilize developer resou
 
 *To use:*
 
-1. Create a free account on the TomTom's Developer Portal, and retreive your API key.
-2. Follow the steps in Watson Assistant to install the json files needed for language, and begin interacting.
-3. Follow the steps in Serverless to utilize the added function of Twilio integration.
+1. Create a free account on TomTom's Developer Portal, and retrieve your API key.
+2. Follow the steps in [Watson Assistant](./watson-assistant) to install the json files needed for language, and begin interacting.
+3. Follow the steps under [Serverless](./serverless/tomtom-action) to create the TomTom integration.
 
 --
 
