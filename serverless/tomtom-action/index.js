@@ -29,7 +29,6 @@ function main(params) {
       y_long = 582676.925582;
     }
 
-
     let url = base_path + x_lat + ',' + x_long + ',' + y_lat + ',' + y_long + "/10/-1/json?key=" + params.tomtom_api;
 
     request(url, (error, response, body) => {
@@ -40,9 +39,7 @@ function main(params) {
       // console.log(result);
       console.log(result);
       resolve({ result: result })
-    })
-
-    return { message: 'Hello World' };
+    });
   });
 
 }
