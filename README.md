@@ -10,9 +10,9 @@ To solve this daily annoyance, Upkar and Olivia created a simple, fun solution t
 
 The project:
 
--Utilizes the NL of the Watson Chatbot to allow the commuter to ask questions and have a conversation.
--Interacts with the TomTom Traffic API to check for accidents on the Bay Bridge at the time of asking.
--Integrates via the Apache OpenWhisk Serverless platform.
+- Utilizes the NL of the Watson Chatbot to allow the commuter to ask questions and have a conversation.
+- Interacts with the TomTom Traffic API to check for accidents on the Bay Bridge at the time of asking.
+- Integrates via the Apache OpenWhisk Serverless platform.
 
 All a user need do is ask something close to "Do I need to take the train today?", and the chat bot will let you know your best option for your morning work route!
 
