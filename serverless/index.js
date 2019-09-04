@@ -32,14 +32,6 @@ function main(params) {
 
     let url = base_path + x_lat + ',' + x_long + ',' + y_lat + ',' + y_long + "/10/-1/json?key=" + params.tomtom_api;
 
-    // request
-    //   .get(url)
-    //   .on('response', function(response) {
-    //     // console.log(response.statusCode) // 200
-    //     console.log(response)
-    //     // console.log(response.headers['content-type']) // 'image/png'
-    //   })
-
     request(url, (error, response, body) => {
       if (error) {
         reject({ result: error })
@@ -55,6 +47,6 @@ function main(params) {
 
 }
 
-
-const tomtom_api = "lp9n3KvklXRcGY4lxxxf6jGxxVU9LNMu";
+// try it locally
+const tomtom_api = "";
 main({ "tomtom_api": tomtom_api })
