@@ -18,6 +18,12 @@ All a user need do is ask something close to "Do I need to take the train today?
 
 This project was created to showcase how easily you can utlilize developer resources to create a simple solutions to a real-life problem, like making a car-less commute from the East Bay to San Francusco.
 
+*To use:*
+
+1. Create a free account on the TomTom's Developer Portal, and retreive your API key.
+2. Follow the steps in Watson Assistant to install the json files needed for language, and begin interacting.
+3. Follow the steps in Serverless to utilize the added function of Twilio integration.
+
 --
 
 Upkar Lidder used to wonder how he might make his morning trip planning easier. If there was an accident on the bay bridge, it would turn his 30 minute trip into a 90 minute trip. There had to be a better way to decide between risking the bus and the holdup or simply taking BART. Having to plan his route in order to make the train on time seemed like an arduous task.
