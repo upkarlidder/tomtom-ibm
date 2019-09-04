@@ -1,0 +1,220 @@
+{
+  "name": "tom-watson",
+  "intents": [
+    {
+      "intent": "user_commute",
+      "examples": [
+        {
+          "text": "Can I take the bus today or should I take the bart?"
+        },
+        {
+          "text": "Do I need to take a train today?"
+        },
+        {
+          "text": "Is there an accident on my commute route?"
+        },
+        {
+          "text": "Is there an accident on the bay bridge?"
+        },
+        {
+          "text": "How is the traffic looking today?"
+        },
+        {
+          "text": "What is the fastest route to work?"
+        },
+        {
+          "text": "What is the fastest way for me to get to work?"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "language": "en",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2018-09-20"
+    }
+  },
+  "skill_id": "19401da0-003f-4018-a332-66caafe0f209",
+  "webhooks": [
+    {
+      "url": "https://us-south.functions.cloud.ibm.com/api/v1/web/upkar.ibm.watson.5%40gmail.com_dev/default/check-accident.json",
+      "name": "main_webhook",
+      "headers": []
+    }
+  ],
+  "description": "",
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "parent": "node_2_1567616320876",
+      "actions": [
+        {
+          "name": "main_webhook",
+          "type": "webhook",
+          "parameters": {
+            "accident": false
+          },
+          "result_variable": "webhook_result_1"
+        }
+      ],
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "true",
+      "dialog_node": "node_1_1567618195633"
+    },
+    {
+      "type": "response_condition",
+      "title": "response_8_1567618209090",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Bad connection. Try again?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1567618195633",
+      "conditions": "anything_else",
+      "dialog_node": "response_8_1567618209090",
+      "previous_sibling": "response_4_1567618207908"
+    },
+    {
+      "type": "standard",
+      "title": "take_bus",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Take the bus. No accidents today!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1567618195633",
+      "conditions": "true",
+      "dialog_node": "node_6_1567618557083",
+      "previous_sibling": "node_7_1567618341486"
+    },
+    {
+      "type": "response_condition",
+      "title": "response_4_1567618207908",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Retrieved data ..."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1567618195633",
+      "conditions": "$webhook_result_1",
+      "dialog_node": "response_4_1567618207908",
+      "previous_sibling": "node_6_1567618557083"
+    },
+    {
+      "type": "standard",
+      "title": "take_bart",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "There is an incident on the Bay Bridge. Take bart today!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1567618195633",
+      "context": {},
+      "conditions": "$webhook_result_1.result.tm.poi.length > 0",
+      "dialog_node": "node_7_1567618341486"
+    },
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "text": {
+          "values": [
+            "I didn't understand. You can try rephrasing.",
+            "Can you reword your statement? I'm not understanding.",
+            "I didn't get your meaning."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_2_1567616320876"
+    },
+    {
+      "type": "standard",
+      "title": "user commute",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Let me check ..."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "#user_commute",
+      "dialog_node": "node_2_1567616320876",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "text": {
+          "values": [
+            "Hello. How can I help you?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "workspace_id": "19401da0-003f-4018-a332-66caafe0f209",
+  "counterexamples": [],
+  "system_settings": {
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "status": "Available"
+}
