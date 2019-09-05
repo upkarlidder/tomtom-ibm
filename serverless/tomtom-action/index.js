@@ -37,7 +37,7 @@ function main(params) {
       }
       var result = JSON.parse(body);
       // console.log(result);
-      console.log(result);
+      console.log(JSON.stringify(result));
       resolve({ result: result })
     });
   });
@@ -46,4 +46,4 @@ function main(params) {
 
 // try it locally
 const tomtom_api = "";
-main({ "tomtom_api": tomtom_api })
+main({ "tomtom_api": tomtom_api, "accident": false })
